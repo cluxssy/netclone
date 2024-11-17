@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="header">
+        <div class="background">
+            <img id="logo" src="images/logo.png" alt="Netflix">
+            <div class="loginbox">
+                <span><h1>Signup</h1>
+                    <form id="signupForm">
+                        <input type="text" id="Name" placeholder="Enter your full name">
+                        <input type="text" id="email" placeholder="Enter your email id">
+                        <input type="text" id="Mobile" placeholder="Enter your Mobile number">
+                        <input type="text" id="age" placeholder="Enter your Age">
+                        <input type="password" id="pass" placeholder="Password">
+                        <button id="submit">Submit</button>
+                    </form>
+                </span>
+            </div>
+            <div class="loginbox_footer">
+                <p>New to Netflix?
+                    <a id="signin" href="sign.html">Sign in Now?</a>
+                </p><br>
+                <h5>This page is protected by Google reCAPTCHA to <br>ensure you're not a bot. 
+                    <a href="https://policies.google.com/privacy">Learn more.</a>
+                </h5>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h4>Questions? Call 000-800-919-1694</h4><br>
+        <div class="links">
+            <ul>
+                <li><a href="https://help.netflix.com/en/node/412">FAQ</a></li>
+                <li><a href="https://www.netflix.com/in/">Cookie Preference</a></li>
+            </ul>
+            <ul>
+                <li><a href="https://help.netflix.com/en/">Help Center</a></li>
+                <li><a href="https://help.netflix.com/legal/corpinfo">Corporate Information</a></li>
+            </ul>
+            <ul>
+                <li><a href="https://help.netflix.com/legal/termsofuse">Terms Of Use</a></li>
+            </ul>
+            <ul>
+                <li><a href="https://help.netflix.com/legal/privacy">Privacy</a></li>
+            </ul>
+            <div>
+                <select data-uia="language-picker" class="ui-select medium" id="lang-switcher-select" tabindex="0" placeholder="lang-switcher" fdprocessedid="quh9wu">
+                    <option selected="" lang="en" value="/in/login" data-language="en" data-country="IN">English</option>
+                    <option lang="hi" value="/in-hi/login" data-language="hi" data-country="IN">हिन्दी</option>
+                </select>
+            </div>
+            <br><br><br><br><br>
+        </div>
+    </div>
+
+    <script>
+        // Get references to form elements
+        const signupForm = document.getElementById('signupForm');
+        const nameInput = document.getElementById('Name');
+        const emailInput = document.getElementById('email');
+        const mobileInput = document.getElementById('Mobile');
+        const ageInput = document.getElementById('age');
+        const passwordInput = document.getElementById('pass');
+
+        // Add submit event listener to the form
+        signupForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Get form values
+            const name = nameInput.value;
+            const email = emailInput.value;
+            const mobile = mobileInput.value;
+            const age = ageInput.value;
+            const password = passwordInput.value;
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Invalid email address. Please enter a valid email.");
+                return;
+            }
+
+            // Mobile number validation
+            const mobileRegex = /^\d{10}$/;
+            if (!mobileRegex.test(mobile)) {
+                alert("Invalid mobile number. Please enter a 10-digit mobile number.");
+                return;
+            }
+
+            // Age validation
+            const ageNumber = parseInt(age);
+            if (isNaN(ageNumber) || ageNumber < 15) {
+                alert("Age below 15 cannot create an account on FreeFlix.");
+                return;
+            }
+
+            // Create an object to store user data
+            const userData = {
+                name,
+                email,
+                mobile,
+                age,
+                password
+            };
+
+            // Store the user data in local storage
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+            // Redirect to the login page
+            window.location.href = 'login.html';
+        });
+    </script>
+
+</body>
+</html>

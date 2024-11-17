@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="header">
+        <div class="background">
+            <img id="logo" src="images/logo.png" alt="Netflix">
+
+            <div class="loginbox">
+                <span>
+                    <h1>Sign in</h1>
+                    <input type="text" id="email" placeholder="Email or phone number" required>
+                    <input type="password" id="pass" placeholder="Password" required>
+                    <button onclick="validateSignIn()">Sign in</button><br>
+                    <input type="checkbox" id="remember" name="remember"/>
+                    <label for="remember">Remember me</label>
+                    <h5>Need help?</h5>
+                </span>
+                <div class="loginbox_footer">
+                    <p>New to Netflix? <a id="signup" href="signup.html">Sign up Now?</a></p><br>
+                    <h5>This page is protected by Google reCAPTCHA to ensure you're not a bot. 
+                        <a href="https://policies.google.com/privacy">Learn more.</a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h4>Questions? Call 000-800-919-1694</h4><br>
+        <div class="links">
+            <ul>
+                <li><a href="https://help.netflix.com/en/node/412">FAQ</a></li>
+                <li><a href="https://www.netflix.com/in/">Cookie Preference</a></li>
+            </ul>
+            <ul>
+                <li><a href="https://help.netflix.com/en/">Help Center</a></li>
+                <li><a href="https://help.netflix.com/legal/corpinfo">Corporate Information</a></li>
+            </ul>
+            <ul>
+                <li><a href="https://help.netflix.com/legal/termsofuse">Terms Of Use</a></li>
+            </ul>
+            <ul>
+                <li><a href="https://help.netflix.com/legal/privacy">Privacy</a></li>
+            </ul>
+            <div>
+                <select data-uia="language-picker" class="ui-select medium" id="lang-switcher-select" tabindex="0" placeholder="lang-switcher" fdprocessedid="quh9wu">
+                    <option selected="" lang="en" value="/in/login" data-language="en" data-country="IN">English</option>
+                    <option lang="hi" value="/in-hi/login" data-language="hi" data-country="IN">हिन्दी</option>
+                </select>
+            </div>
+            <br><br><br><br><br>
+        </div>
+    </div>
+
+    <script>
+        function validateSignIn() {
+            // Get login form values
+            const loginEmail = document.getElementById('email').value;
+            const loginPassword = document.getElementById('pass').value;
+
+            // Retrieve user data from local storage (you should replace this with your actual storage/retrieval logic)
+            const storedUserData = JSON.parse(localStorage.getItem('userData'));
+
+            // Check if the entered email and password match the values used during signup
+            if (storedUserData && storedUserData.email === loginEmail && storedUserData.password === loginPassword) {
+                // Perform additional validation or submit the form
+                // For now, let's navigate to payment.html as an example
+                window.location.href = 'payment.html';
+            } else {
+                alert('Invalid email or password. Please try again.');
+            }
+        }
+    </script>
+
+</body>
+</html>

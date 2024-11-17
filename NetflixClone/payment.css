@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'popins',sans-serif;
+}
+nav{
+    justify-content: space-between;
+    display: flex;
+    border-bottom: 1px solid rgb(115,115,115);;
+}
+nav button{
+    border: 0;
+    outline:0;
+    background: #db0001 ;
+    color: #fff;
+    padding: 7px;
+    font-size: 12px;
+    border-radius: 4px;
+    margin: 10px;
+    cursor: pointer;
+    height: 50px;
+}
+.logo{
+    width: 150px;
+    cursor: pointer;
+    margin: 10px;
+    padding: 20px;
+}
+h1{
+    color: rgb(115,115,115);
+    margin: 10px;
+    padding: 10px;
+}
+.main{
+    align-items: center;
+    justify-content:space-evenly;
+    display: flex;
+    padding: 50px;
+    margin: 10px 50px;
+    /* border: 1px solid black; */
+    width: 80%;
+    height: 80%;
+    /* background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(images/header-image.png); */
+}
+.payment{
+    /* margin:20px; */
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 500px;
+}
+.payment button{
+    width: 100px;
+    padding: 20px;
+    background-color: #e15b62;
+    color: white;
+    border: none;
+    outline: 0;
+    border-radius: 2px;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+    width: 120px;
+    padding: 10px;
+    background-color: #e15b62;
+    color: white;
+    border: none;
+    outline: 0;
+    border-radius: 2px;
+    margin-top: 20px;
+}
+.payment h4{
+    color: rgb(115,115,115);
+    margin-top: 10px;
+}
+button:hover{
+    background-color: #da111b;
+}
+.payment:hover{
+    border: 1px dotted red;
+}
+.payment:click{
+    border:2px dotted red 
+}
